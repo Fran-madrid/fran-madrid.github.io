@@ -43,7 +43,7 @@
 </main>
 <script>
   const TIENDA_IOS = "";
-  const TIENDA_ANDROID = "https://play.google.com/store/apps/details?id=com.franmorales.losabia";
+  const TIENDA_ANDROID = "";
   const ESQUEMA = "losabia";
   const codigo = (new URLSearchParams(location.search).get('c') || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
   const valido = codigo.length === 6;
@@ -61,7 +61,7 @@
   let tienda = '';
   if (esAndroid) tienda = TIENDA_ANDROID + (valido ? '&referrer=' + encodeURIComponent('codigo=' + codigo) : '');
   else if (esIOS) tienda = TIENDA_IOS;
-  else tienda = TIENDA_ANDROID;
+  else tienda = TIENDA_ANDROID || TIENDA_IOS;
   if (!tienda) {
     descargar.hidden = true;
     document.getElementById('pronto').hidden = false;
