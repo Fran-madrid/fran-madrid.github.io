@@ -1,0 +1,26 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.franmorales.losabia",
+      "sha256_cert_fingerprints": [
+        "BF:1E:28:3F:54:69:B9:43:F1:43:E5:26:7F:C5:D5:9F:3D:73:29:7C:A8:A1:CC:61:7A:CD:91:29:34:E0:3B:A8"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.franmorales.losabia.debug",
+      "sha256_cert_fingerprints": [
+        "6F:87:6A:68:F8:D8:35:6D:5A:57:65:D4:01:E1:51:88:43:D0:15:BC:1F:66:EB:E2:3E:C1:DB:72:96:9E:54:12"
+      ]
+    }
+  }
+]

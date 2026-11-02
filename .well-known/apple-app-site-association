@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "899557BSY2.com.franmorales.losabia"
+        ],
+        "components": [
+          {
+            "/": "/losabia/p/*"
+          }
+        ]
+      }
+    ]
+  }
+}
