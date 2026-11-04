@@ -7,7 +7,8 @@
       "namespace": "android_app",
       "package_name": "com.franmorales.losabia",
       "sha256_cert_fingerprints": [
-        "BF:1E:28:3F:54:69:B9:43:F1:43:E5:26:7F:C5:D5:9F:3D:73:29:7C:A8:A1:CC:61:7A:CD:91:29:34:E0:3B:A8"
+        "BF:1E:28:3F:54:69:B9:43:F1:43:E5:26:7F:C5:D5:9F:3D:73:29:7C:A8:A1:CC:61:7A:CD:91:29:34:E0:3B:A8",
+        "4E:99:FD:F5:B8:8E:1B:78:82:D6:57:B3:27:55:B6:23:CD:22:4B:29:2E:4C:11:AD:9D:0B:85:24:6F:F5:16:B5"
       ]
     }
   },
