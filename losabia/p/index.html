@@ -33,17 +33,23 @@
   <h1>Te han invitado a una porra</h1>
   <p>Haz tus pronósticos y compite con tus amigos. Es gratis y no hace falta registrarse.</p>
   <div class="codigo" id="caja-codigo"><p>Código de la porra</p><span id="codigo">——————</span></div>
+  <p id="aviso-prueba" hidden></p>
+  <a class="boton secundario" id="apuntarse" href="#" hidden>1. Apúntate a la prueba</a>
   <a class="boton principal" id="descargar" href="#">Descargar la app</a>
   <a class="boton secundario" id="abrir" href="#">Ya tengo la app</a>
   <ol class="pasos" id="pasos-ios" hidden>
+    <li id="paso-testflight" hidden>Si te lo pide, instala antes TestFlight (la app de Apple para probar apps).</li>
     <li>Instala la app y ábrela.</li>
     <li>Pulsa «Tengo un código» y después «Pegar invitación» (ya está copiada).</li>
   </ol>
-  <p id="pronto" hidden>La app aún no está en la tienda. Muy pronto podrás descargarla.</p>
+  <p id="pronto" hidden>Abre este enlace en tu móvil para descargar la app.</p>
 </main>
 <script>
-  const TIENDA_IOS = "";
-  const TIENDA_ANDROID = "";
+  // Con la app publicada, las tiendas; antes, la prueba con amigos (TestFlight y prueba cerrada de Google Play)
+  const PRUEBA = true;
+  const TIENDA_IOS = "https://testflight.apple.com/join/zF4d6xP1";
+  const TIENDA_ANDROID = "https://play.google.com/store/apps/details?id=com.franmorales.losabia";
+  const APUNTARSE_ANDROID = "https://play.google.com/apps/testing/com.franmorales.losabia";
   const ESQUEMA = "losabia";
   const codigo = (new URLSearchParams(location.search).get('c') || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
   const valido = codigo.length === 6;
@@ -61,7 +67,20 @@
   let tienda = '';
   if (esAndroid) tienda = TIENDA_ANDROID + (valido ? '&referrer=' + encodeURIComponent('codigo=' + codigo) : '');
   else if (esIOS) tienda = TIENDA_IOS;
-  else tienda = TIENDA_ANDROID || TIENDA_IOS;
+  else if (!PRUEBA) tienda = TIENDA_ANDROID;
+  const aviso = document.getElementById('aviso-prueba');
+  if (PRUEBA && esIOS) {
+    aviso.textContent = 'La app está en pruebas: se instala con TestFlight, la app de Apple para probar apps antes de que salgan.';
+    aviso.hidden = false;
+    document.getElementById('paso-testflight').hidden = false;
+  } else if (PRUEBA && esAndroid) {
+    aviso.textContent = 'La app está en pruebas. Primero apúntate (con la cuenta de Google de tu móvil) y después descárgala.';
+    aviso.hidden = false;
+    const apuntarse = document.getElementById('apuntarse');
+    apuntarse.href = APUNTARSE_ANDROID;
+    apuntarse.hidden = false;
+    descargar.textContent = '2. Descargar la app';
+  }
   if (!tienda) {
     descargar.hidden = true;
     document.getElementById('pronto').hidden = false;
